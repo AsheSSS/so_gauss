@@ -10,6 +10,21 @@ cmake_minimum_required(VERSION 3.4.1)
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/src/main/cpp)
+
+SET(jnisrc "src/main/cpp/")
+
+SET(LIB_SRC src/main/cpp/native-lib.cpp  src/main/cpp/advanced_test.cpp  src/main/cpp/log4z.cpp src/main/cpp/fast_test.cpp)
+
+IF(${ANDROID_ABI} STREQUAL "x86")
+
+MESSAGE("这是x86的设置")
+ELSEIF(${ANDROID_ABI} STREQUAL "armeabi-v7a")
+MESSAGE("这是armeabi-v7a的设置")
+ENDIF(${ANDROID_ABI} STREQUAL "x86")
+
+
+MESSAGE(${ANDROID_ABI})
 add_library( # Sets the name of the library.
              native-lib
 
@@ -17,7 +32,7 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/native-lib.cpp )
+           ${LIB_SRC})
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
