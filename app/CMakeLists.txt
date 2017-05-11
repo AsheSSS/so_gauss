@@ -14,7 +14,7 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/src/main/cpp)
 
 SET(jnisrc "src/main/cpp/")
 
-SET(LIB_SRC src/main/cpp/native-lib.cpp  src/main/cpp/advanced_test.cpp  src/main/cpp/log4z.cpp src/main/cpp/fast_test.cpp)
+SET(LIB_SRC src/main/cpp/native-lib.cpp  src/main/cpp/advanced_test.cpp  src/main/cpp/log4z.cpp )
 
 IF(${ANDROID_ABI} STREQUAL "x86")
 
